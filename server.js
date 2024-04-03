@@ -5,14 +5,16 @@ const app = express()
 const port = process.env.PORT || 3001
 
 //MIDDLEWARES
-app.use(express.json())
+app.use(express.json());
 app.use(routes);
-
+app.use(express.static('public'));
 
 //ROUTES
-app.get('/', (req, res) => {
-  res.send('Hello World!')
-})
+
+// GET Route for homepage
+app.get('/', (req, res) =>
+  res.sendFile(path.join(__dirname, '/public/index.html'))
+);
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)
