@@ -1,6 +1,7 @@
 const router = require("express").Router();
 
 
+
 //API ROUTES
 //GET /api/notes
 router.get
